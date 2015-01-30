@@ -12,7 +12,6 @@ subDir;
 
 for (i=0; i < subDirs.length; i++){
   subDir = dir + '/' + subDirs[i];
-  console.log(subDir);
   if (!fs.existsSync(subDir)){
     fs.mkdirSync(subDir);
   }
