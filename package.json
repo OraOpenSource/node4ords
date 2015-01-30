@@ -1,0 +1,10 @@
+{
+  "name": "node4apex",
+  "version": "0.0.1",
+  "private": false,
+  "dependencies": {
+    "express": "~4.11.1",
+    "serve-favicon": "~2.2.0",
+    "http-proxy": "~1.8.1"
+  }
+}
