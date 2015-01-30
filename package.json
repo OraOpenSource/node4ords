@@ -8,7 +8,8 @@
     "http-proxy": "~1.8.1"
   },
   "scripts": {
-    "preinstall": "node scripts/install.js"
+    "preinstall": "node scripts/preinstall.js",
+    "start": "node app.js"
   },
   "licenses": [
     {
