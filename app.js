@@ -4,17 +4,18 @@ var proxy = require( 'http-proxy' ).createProxyServer({});
 var http = require('http');
 //var https = require('https');
 
-var ports = {
-  http: process.env.PORT || '80',
-  https: process.env.PORT || '443'
-}
-
-var tomcatUrl = 'http://localhost:8080';
 var app = express();
 
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/favicon.ico'));
+var config = {
+  ports : {
+    http: process.env.PORT || '80',
+    https: process.env.HTTPS_PORT || '443'
+  },
+  webContainerUrl : process.env.APEX_WEB_CONTAINER_URL || 'http://localhost:8080', // This is the link to tomcat or glassfish server
+  apexImagesDir : process.env.APEX_IMAGES_DIR || '/ords/apex_images',
+  faviconUrl : process.env.FAVICON_URL //Ex: '/public/favicon.ico'
+}
 
 //Uncomment if you don't want to redirect / and /apex to the new /ords
 app.use('/apex',function(req, res, next){
@@ -23,10 +24,17 @@ app.use('/apex',function(req, res, next){
 
 //Can store custom images in public/...
 app.use('/public', express.static(__dirname + '/public'));
-app.use('/i',express.static('/usr/share/apache-tomcat-7.0.57/webapps/i/'));
+app.use('/i',express.static(config.apexImagesDir));
+
+//Register favicon if applicable
+if (config.faviconUrl){
+  console.log('Favicon')
+  app.use(favicon(__dirname + config.faviconUrl));
+}
+
 
 app.use('/ords', function (req, res, next){
-  proxy.web(req, res, { target: tomcatUrl + req.baseUrl});
+  proxy.web(req, res, { target: config.webContainerUrl + req.baseUrl});
 });
 
 // Make sure this is last as it will forward to APEX
@@ -37,6 +45,6 @@ app.use(function(req, res, next){
 
 
 // app.listen(httpPort);
-http.createServer(app).listen(ports.http);
+http.createServer(app).listen(config.ports.http);
 //Enable once SSL cert defined
-// https.createServer(options, app).listen(ports.https);
+// https.createServer(options, app).listen(config.ports.https);
