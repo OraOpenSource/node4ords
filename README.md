@@ -1,24 +1,28 @@
 # node4ords
-Simple node app to act as web listener to sit on top of Oracle Rest Data Services (ORDS). This is an alternative to using an Apache web server.
+Simple node app to act as web listener to sit on top of Oracle Rest Data Services (ORDS) web container (such as Tomcat). This is an alternative to using an Apache web server.
+
+This project was created as part of the Oracle XE / APEX VM install project: https://github.com/OraOpenSource/oraclexe-apex
 
 Please note this is still in beta and additional changes will be coming.
 
 
 #Install
-```
-git clone https://github.com/OraOpenSource/node4apex.git
+```bash
+git clone https://github.com/OraOpenSource/node4ords.git
 TODO the unsafe-perm may not be required
-cd ./node4apex
+cd ./node4ords
 npm install --unsafe-perm
 ```
 
 #Config 
-All the configuration is handled in config.js. Please modify with appropriate settings
+All the configuration is handled in config.js. Please modify with appropriate settings. 
 
 
 #Run
 
-```npm start```
+```bash
+npm start
+```
 
 TODO provide link to node project that handles node on boot
 

@@ -7,44 +7,41 @@ var http = require('http');
 var app = express();
 
 
-var config = {
-  ports : {
-    http: process.env.PORT || '80',
-    https: process.env.HTTPS_PORT || '443'
-  },
-  webContainerUrl : process.env.APEX_WEB_CONTAINER_URL || 'http://localhost:8080', // This is the link to tomcat or glassfish server
-  apexImagesDir : process.env.APEX_IMAGES_DIR || '/ords/apex_images',
-  faviconUrl : process.env.FAVICON_URL //Ex: '/public/favicon.ico'
-}
+var config = require('./config');
 
 //Uncomment if you don't want to redirect / and /apex to the new /ords
-app.use('/apex',function(req, res, next){
-  res.redirect('/ords');
-});
-
-//Can store custom images in public/...
-app.use('/public', express.static(__dirname + '/public'));
-app.use('/i',express.static(config.apexImagesDir));
-
-//Register favicon if applicable
-if (config.faviconUrl){
-  console.log('Favicon')
-  app.use(favicon(__dirname + config.faviconUrl));
+if (config.ords.redirectPaths.length > 0){
+  for(i=0; i< config.ords.redirectPaths.length; i++){
+    app.use(config.ords.redirectPaths[i],function(req, res, next){
+      res.redirect(config.ords.path);
+    });
+  }
 }
 
+//Can store custom images in public/...
+app.use(config.static.path, express.static(config.static.directory));
+app.use(config.apex.images.path,express.static(config.apex.images.directory));
 
-app.use('/ords', function (req, res, next){
-  proxy.web(req, res, { target: config.webContainerUrl + req.baseUrl});
+//Register favicon if applicable
+// if (config.faviconUrl){
+//   console.log('Favicon')
+//   app.use(favicon(__dirname + config.faviconUrl));
+// }
+
+
+app.use(config.ords.path, function (req, res, next){
+  proxy.web(req, res, { target: config.ords.webContainerUrl + req.baseUrl});
 });
 
 // Make sure this is last as it will forward to APEX
 app.use(function(req, res, next){
-  res.redirect('/ords');
+  res.redirect(config.ords.path);
 });
 
 
 
 // app.listen(httpPort);
-http.createServer(app).listen(config.ports.http);
+http.createServer(app).listen(config.web.http.port);
 //Enable once SSL cert defined
 // https.createServer(options, app).listen(config.ports.https);
+est

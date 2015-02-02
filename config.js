@@ -10,6 +10,7 @@ config.web.http.port = process.env.PORT || '80';
 // config.web.https = {};
 // config.web.https.port = process.env.PORT || '443';
 
+//TODO make this handle multiple instances of ORDS (i.e. put each of these in an array)
 //ORDS info
 config.ords = {};
 config.ords.path = '/ords';
