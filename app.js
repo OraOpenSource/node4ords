@@ -44,4 +44,3 @@ app.use(function(req, res, next){
 http.createServer(app).listen(config.web.http.port);
 //Enable once SSL cert defined
 // https.createServer(options, app).listen(config.ports.https);
-est
