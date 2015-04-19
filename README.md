@@ -1,4 +1,4 @@
-# node4ords
+# Node4ORDS
 Simple node app to act as web listener to sit on top of Oracle Rest Data Services (ORDS) web container (such as Tomcat). This is an alternative to using an Apache web server.
 
 This project was created as part of the Oracle XE / APEX VM install project: https://github.com/OraOpenSource/oraclexe-apex
@@ -17,7 +17,7 @@ npm install --unsafe-perm
 Node4ORDS comes with a self updating script. If you have made any customizations to any file in the project be sure to back it up as this script will delete the folder. To run:
 
 ```bash
-#Go to your app folder and update
+#Assuming that your app folder is in /var/www/node4ords
 . /var/www/node4ords/update.sh
 ```
 
