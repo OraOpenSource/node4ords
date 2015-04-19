@@ -13,6 +13,16 @@ cd ./node4ords
 npm install --unsafe-perm
 ```
 
+##Upgrade
+Node4ORDS comes with a self updating script. If you have made any customizations to any file in the project be sure to back it up as this script will delete the folder. To run:
+
+```bash
+#Go to your app folder and update
+. /var/www/node4ords/update.sh
+```
+
+If you are missing `update.sh` it means you are running an older version of Node4ORDS. Please do a manual upgrade as described in [this post](http://www.oraopensource.com/blog/2015/4/18/node4ords-update).
+
 #Config
 All the configuration in ```config.js```. This should be reviewed before installing to configure the web container URL, ports, etc.
 
