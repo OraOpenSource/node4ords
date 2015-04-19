@@ -30,7 +30,11 @@ app.use(config.apex.images.path,express.static(config.apex.images.directory));
 
 
 app.use(config.ords.path, function (req, res, next){
-  proxy.web(req, res, { target: config.ords.webContainerUrl + req.baseUrl});
+  proxy.web(req, res, { target: config.ords.webContainerUrl + req.baseUrl},
+    function(e){
+      console.log('proxy.web error: ', e);
+    }
+  );
 });
 
 // Make sure this is last as it will forward to APEX
