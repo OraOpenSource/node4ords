@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "private": false,
   "dependencies": {
-    "express": "~4.11.1",
+    "express": "~4.12.3",
     "serve-favicon": "~2.2.0",
-    "http-proxy": "~1.8.1"
+    "http-proxy": "~1.10.1"
   },
   "scripts": {
     "preinstall": "node scripts/preinstall.js",
