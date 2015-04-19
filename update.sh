@@ -8,9 +8,9 @@ fi
 #Detect if we have a node4ords startup script (commonly found in OraOpenSource Oracle XE / APEX VM ).
 if [ -f /etc/init.d/node4ords ];
 then
-   n4o_startup_script=Y
+   N4O_STARTUP_SCRIPT=Y
 else
-   n4o_startup_script=N
+   N4O_STARTUP_SCRIPT=N
 fi
 
 #Find location of script
@@ -27,8 +27,8 @@ echo;
 echo *** Node4ORDS Updating ***
 echo;
 echo VARIABLES; echo;
-echo n4o_startup_script: $n4o_startup_script
-echo n4o_dir: $n4o_dir
+echo N4O_STARTUP_SCRIPT: $N4O_STARTUP_SCRIPT
+echo N4O_DIR: $N4O_DIR
 echo;
 
 
@@ -39,12 +39,15 @@ kill $(ps aux | grep 'node4ords' | awk '{print $2}')
 #Reinstall
 echo Reinstalling; echo;
 cd $N4O_DIR
-rm -rf *
+rm -rf
+#Remove all hidden directories as well (ex .git)
+rm -rf .[^.] .??*
+
 git clone https://github.com/OraOpenSource/node4ords.git .
 npm install --unsafe-perm
 
 #Restart
-if [ $n4o_startup_script = "Y" ]; then
+if [ $N4O_STARTUP_SCRIPT = "Y" ]; then
   echo; echo Restarting Node4ORDS; echo;
   /etc/init.d/node4ords restart
 else
