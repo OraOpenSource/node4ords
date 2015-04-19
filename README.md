@@ -25,7 +25,7 @@ node app.js
 An example of how to start this app on boot can be found in the [Oraclexe-Apex](https://github.com/OraOpenSource/oraclexe-apex) project. Specifically the [init.d/node4ords](https://github.com/OraOpenSource/oraclexe-apex/blob/master/init.d/node4ords) file.
 
 #Static files
-Once installed a directory called ```./public``` will be created. Static files can be placed in there and referenced from your server via *//server_name/public/filename*. You can configure the location for static content in ```config.js```.
+Once installed a directory called ```/var/www/public``` will be created. Static files can be placed in there and referenced from your server via *//server_name/public/filename*. You can configure the location for static content in ```config.js```.
 
 By default, the following folder structure will be created:
 ```

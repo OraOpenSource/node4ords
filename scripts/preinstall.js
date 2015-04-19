@@ -1,6 +1,6 @@
 //Create public directory as a starting point for static files
 var fs = require('fs');
-var dir = './public';
+var dir = '/var/www/public';
 
 if (!fs.existsSync(dir)){
   fs.mkdirSync(dir);

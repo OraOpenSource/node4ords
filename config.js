@@ -26,7 +26,8 @@ config.apex.images.directory = '/ords/apex_images';
 //Static file info
 config.static = {}
 config.static.path = '/public'; //URL path
-config.static.directory = __dirname + '/public'; //Filesystem directory
+// Old (pre #13) config.static.directory = __dirname + '/public'; //Filesystem directory
+config.static.directory = '/var/www/public'; //Filesystem directory
 
 
 
