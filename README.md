@@ -1,3 +1,4 @@
+[![Analytics](https://ga-beacon.appspot.com/UA-59573016-4/node4ords/README.md?pixel)](https://github.com/igrigorik/ga-beacon)
 # Node4ORDS
 Simple node app to act as web listener to sit on top of Oracle Rest Data Services (ORDS) web container (such as Tomcat). This is an alternative to using an Apache web server.
 
