@@ -15,19 +15,19 @@ config.web.http.port = process.env.PORT || '80';
 config.ords = {};
 config.ords.path = '/ords';
 config.ords.redirectPaths = ['/apex']; //array of paths to redirect to config.ords.path. Useful for backwards compatibility with /apex
-config.ords.webContainerUrl = 'http://localhost:8080'; // This is the link to tomcat or glassfish server
+config.ords.webContainerUrl = process.env.WEB_CONTAINER_URL || 'http://localhost:8080'; // This is the link to tomcat or glassfish server
 
 //APEX info
 config.apex = {};
 config.apex.images = {};
 config.apex.images.path = '/i';
-config.apex.images.directory = '/ords/apex_images';
+config.apex.images.directory = process.env.APEX_IMAGES_DIR || '/ords/apex_images';
 
 //Static file info
 config.static = {}
 config.static.path = '/public'; //URL path
 // Old (pre #13) config.static.directory = __dirname + '/public'; //Filesystem directory
-config.static.directory = '/var/www/public'; //Filesystem directory
+config.static.directory = process.env.STATIC_DIR || '/var/www/public'; //Filesystem directory
 
 
 
