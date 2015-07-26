@@ -38,7 +38,7 @@ app.use(config.ords.path, function (req, res, next){
 });
 
 // Make sure this is last as it will forward to APEX
-app.use(function(req, res, next){
+app.get(function(req, res, next){
   res.redirect(config.ords.path);
 });
 
