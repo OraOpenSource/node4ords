@@ -9,7 +9,6 @@ This project was created as part of the Oracle XE / APEX VM install project: htt
 #Install
 ```bash
 git clone https://github.com/OraOpenSource/node4ords.git
-#TODO the unsafe-perm may not be required
 cd ./node4ords
 npm install --unsafe-perm
 ```
