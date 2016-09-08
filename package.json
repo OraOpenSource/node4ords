@@ -4,8 +4,9 @@
   "private": false,
   "dependencies": {
     "express": "~4.14.0",
+    "express-force-ssl": "^0.3.2",
     "fs-extra": "^0.30.0",
-    "http-proxy": "~1.11.0",
+    "http-proxy-middleware": "^0.17.1",
     "serve-favicon": "~2.3.0"
   },
   "scripts": {
