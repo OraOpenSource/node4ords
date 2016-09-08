@@ -52,16 +52,29 @@ Setting | Required | Default | Description
 `config.static.path` | | | Path to access static www files. Ex `/public`
 `config.static.directory` | | | Filesystem location of where www static files are stored. Ex: `/var/www/public`
 
-#Run
+# Run
 
 ```bash
 node app.js
 ```
 
-An example of how to start this app on boot can be found in the [Oraclexe-Apex](https://github.com/OraOpenSource/oraclexe-apex) project. Specifically the [init.d/node4ords](https://github.com/OraOpenSource/oraclexe-apex/blob/master/init.d/node4ords) file.
+To start Node4ORDS as an system process it's recommended to use [PM2](http://pm2.keymetrics.io/).  The following script demonstrates how to install PM2 and run Node4ORDS.
+
+```bash
+npm install pm2 -g
+
+# Go to the directory that Node4ORDS is installed in or reference the full path
+pm2 start app.js --name="node4ords" --watch
+
+# To have it run on boot:
+# pm2 startup <os type>. Ex pm2 startup redhat
+
+# Save current setup
+pm2 save
+```
 
 #Static files
-Once installed a directory called `/var/www/public` will be created. Static files can be placed in there and referenced from your server via `//server_name/public/filename`. You can configure the location for static content in ```config.js```.
+Once installed a directory called `/var/www/public` will be created. Static files can be placed in there and referenced from your server via `//server_name/public/filename`. You can configure the location for static content in `config.js`.
 
 By default, the following folder structure will be created:
 ```bash
