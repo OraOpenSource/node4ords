@@ -73,7 +73,7 @@ pm2 start app.js --name="node4ords" --watch
 pm2 save
 ```
 
-#Static files
+# Static files
 Once installed a directory called `/var/www/public` will be created. Static files can be placed in there and referenced from your server via `//server_name/public/filename`. You can configure the location for static content in `config.js`.
 
 By default, the following folder structure will be created:
@@ -82,4 +82,19 @@ By default, the following folder structure will be created:
 	|-css
 	|-img
 	|-js
+```
+
+# SSL
+
+If you want to use SSL, the `config.js` supports SSL. A private and public key are required.
+
+## Unsigned Private key
+
+The following demo shows how to quickly create an unsigned private key:
+
+```bash
+openssl req \
+  -newkey rsa:2048 -nodes -keyout localhost.key \
+  -x509 -days 365 -out localhost.crt \
+  -subj "/C=CA/ST=Alberta/L=Calgary/O=Dis/CN=localhost"
 ```
