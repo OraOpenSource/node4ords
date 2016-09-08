@@ -32,7 +32,8 @@ Setting | Required | Default | Description
 --- | --- | --- | ---
 `config.web.http` | | |  HTTP config container
 `config.web.http.port` | optional | `80` |  Port for http connections
-`config.web.https` | optional | |  If defined, will trigger HTTPS option
+`config.web.https` | optional | | HTTPS config container
+`config.web.https.enabled` | required | `false` | Set to `true` to enable HTTPS connections
 `config.web.https.port` | optional | `443` |  Port for https connections
 `config.web.https.keyPath` | required | | Full path to SSL private key _Required only if HTTPS is enabled_
 `config.web.https.certPath` | required | | Full path to SSL certificate _Required only if HTTPS is enabled_

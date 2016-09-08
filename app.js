@@ -21,7 +21,7 @@ var PORTS = {
 PORTS.FORCE_SSL_PORT = config.web.https.forceSSLPort || PORTS.HTTPS;
 
 // #2 SSL Support. All triggerd by the presence of config.web.https
-if (config.web.https){
+if (config.web.https.enabled){
   console.log('Enabling HTTPS');
   privateKey = fs.readFileSync(path.resolve(config.web.https.keyPath));
   certificate = fs.readFileSync(path.resolve(config.web.https.certPath));
@@ -104,7 +104,7 @@ app.get('/', function(req, res, next){
 // app.listen(httpPort);
 http.createServer(app).listen(PORTS.HTTP);
 
-if (config.web.https){
+if (config.web.https.enabled){
   https.createServer(
     {
       key: privateKey,
