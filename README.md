@@ -29,7 +29,7 @@ The configuration for node4ords is stored in `config.js`. When installing Node4O
 The following is an explanation of all the settings
 
 Setting | Required | Default | Description
---- | ---
+--- | --- | --- | ---
 `config.web.http` | | |  HTTP config container
 `config.web.http.port` | optional | `80` |  Port for http connections
 `config.web.https` | optional | |  If defined, will trigger HTTPS option
