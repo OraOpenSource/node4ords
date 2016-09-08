@@ -35,8 +35,8 @@ Setting | Required | Default | Description
 `config.web.https` | optional | | HTTPS config container
 `config.web.https.enabled` | required | `false` | Set to `true` to enable HTTPS connections
 `config.web.https.port` | optional | `443` |  Port for https connections
-`config.web.https.keyPath` | required | | Full path to SSL private key _Required only if HTTPS is enabled_
-`config.web.https.certPath` | required | | Full path to SSL certificate _Required only if HTTPS is enabled_
+`config.web.https.keyPath` | required | | Full path to SSL private key. _Required only if HTTPS is enabled_. Ex: `/tmp/certs/domain.key`
+`config.web.https.certPath` | required | | Full path to SSL certificate. _Required only if HTTPS is enabled_. Ex: `/tmp/certs/domain.crt`
 `config.web.https.forceHttps` | optional | `false` | If `true` then all HTTP connections will be redirected to HTTPS
 `config.web.https.forceSSLPort` | optional | `config.web.https.port` | If `config.web.https.forceHttps` is enabled then this port will be used for the redirect. In most cases `443` (the default) is appropriate. A different port is usually only required if running Node4ORDS on a VM and doing port mapping that maps `443` to a different (local) port.
 `config.ords` | | | ORDS config container
