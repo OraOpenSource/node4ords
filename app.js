@@ -26,7 +26,6 @@ if (config.web.https.enabled){
   privateKey = fs.readFileSync(path.resolve(config.web.https.keyPath));
   certificate = fs.readFileSync(path.resolve(config.web.https.certPath));
 
-  // TODO mdsouza: make the httpsPort modifiable
   if (config.web.https.forceHttps) {
     app.set('forceSSLOptions', {
       enable301Redirects: true,
@@ -60,7 +59,6 @@ app.use(config.apex.images.path,express.static(config.apex.images.directory));
 // }
 
 // https://github.com/chimurai/http-proxy-middleware
-
 app.use(config.ords.path,proxy(
   {
     target: config.ords.webContainerUrl,
@@ -82,14 +80,6 @@ app.use(config.ords.path,proxy(
   }
 ));
 
-// app.use(config.ords.path, function (req, res, next){
-//   console.log('***');
-//   console.log('in app.use(config.ords.path before proxy');
-// });
-
-// proxy.on('proxyReq', function(proxyReq, req, res, options) {
-//   console.log('hello');
-// });
 
 // Make sure this is last as it will forward to APEX
 app.get('/', function(req, res, next){
@@ -97,8 +87,6 @@ app.get('/', function(req, res, next){
   // console.log('req.headers.origin:', req.headers);
   res.redirect(config.ords.path);
 });
-
-
 
 
 // app.listen(httpPort);
