@@ -6,22 +6,23 @@ This project was created as part of the Oracle XE / APEX VM install project: htt
 
 *Please note this is still in beta and additional changes will be coming.*
 
-#Install
+# Install
 ```bash
 git clone https://github.com/OraOpenSource/node4ords.git
 cd ./node4ords
 npm install --unsafe-perm
 ```
 
-##Upgrade
-Node4ORDS comes with a self updating script. If you have made any customizations to any file in the project be sure to back it up as this script will delete the folder. To run:
+## Upgrade
+
+To upgrade simply run
 
 ```bash
-#Assuming that your app folder is in /var/www/node4ords
-. /var/www/node4ords/update.sh
+git pull
+npm install --unsafe-perm
 ```
 
-If you are missing `update.sh` it means you are running an older version of Node4ORDS. Please do a manual upgrade as described in [this post](http://www.oraopensource.com/blog/2015/4/18/node4ords-update).
+Check the latest docs to see if additional configuration options are available. Existing `config.js` files will not be modified
 
 # Config
 The configuration for node4ords is stored in `config.js`. When installing Node4ORDS the first time this file will be created as a copy of [`defaultConfig.js`](defaultConfig.js).
