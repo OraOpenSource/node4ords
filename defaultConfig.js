@@ -12,8 +12,8 @@ config.web.http.port = process.env.PORT || '80';
 config.web.https = {};
 config.web.https.enabled = false;
 config.web.https.port = process.env.PORT || '443';
-config.web.https.keyPath = 'CHANGEME';
-config.web.https.certPath = 'CHANGEME';
+config.web.https.keyPath = 'CHANGEME_HTTPS_KEYPATH';
+config.web.https.certPath = 'CHANGEME_HTTPS_CERTPATH';
 config.web.https.forceHttps = false; // Force https over http
 config.web.https.forceSSLPort = config.web.https.port ; // If Forcing SSL, this port will be used for the SSL Redirect. Useful in dealing with vm proxied solutions
 
