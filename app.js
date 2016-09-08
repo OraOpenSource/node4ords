@@ -83,7 +83,7 @@ app.use(config.ords.path,proxy(
 
 // Make sure this is last as it will forward to APEX
 app.get('/', function(req, res, next){
-  console.log('in / forward');
+  // console.log('in / forward');
   // console.log('req.headers.origin:', req.headers);
   res.redirect(config.ords.path);
 });
