@@ -6,9 +6,16 @@ var config = {};
 config.web = {}
 config.web.http = {};
 config.web.http.port = process.env.PORT || '80';
+
 //For issue #2 (SSL support). Additional configs will probably be required
-// config.web.https = {};
-// config.web.https.port = process.env.PORT || '443';
+// Uncommenting config.web.https will trigger https functionality
+config.web.https = {};
+config.web.https.enabled = false;
+config.web.https.port = process.env.PORT || '443';
+config.web.https.keyPath = 'CHANGEME_HTTPS_KEYPATH';
+config.web.https.certPath = 'CHANGEME_HTTPS_CERTPATH';
+config.web.https.forceHttps = false; // Force https over http
+config.web.https.forceSSLPort = config.web.https.port ; // If Forcing SSL, this port will be used for the SSL Redirect. Useful in dealing with vm proxied solutions
 
 //TODO make this handle multiple instances of ORDS (i.e. put each of these in an array)
 //ORDS info
@@ -30,5 +37,5 @@ config.static.path = '/public'; //URL path
 config.static.directory = process.env.STATIC_DIR || '/var/www/public'; //Filesystem directory
 
 
-
+// Leave this in here!
 module.exports = config;
